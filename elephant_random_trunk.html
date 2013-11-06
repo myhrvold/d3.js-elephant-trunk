@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>D3 Page Template</title>
+		<script type="text/javascript" src="d3.v3.js"></script>
+	</head>
+	<body>
+	<div id="elephant"></div>
+    <div id="trunkslider"></div>
+    This is an elephant.
+		<script type="text/javascript">
+        
+            //var trunkslider = d3.select("#trunkslider")
+            
+            
+            //var set_trunk = 120
+            var set_trunk = d3.random.normal(100,20) //normal distribution around 100 w/ dev of 20
+            
+            
+			var elephant = d3.select("#elephant").
+			  append("svg").
+			  attr("width", 400).
+			  attr("height", 300);
+              
+            //body
+			elephant.append("rect").
+			  attr("x", 100).
+			  attr("y", 100).
+			  attr("height", 100).
+			  attr("width", 200).
+              style("fill","gray");
+              
+            //top tail
+			elephant.append("rect").
+			  attr("x", 300).
+			  attr("y", 100).
+			  attr("height", 10).
+			  attr("width", 25).
+              style("fill","gray");            
+            
+            //bottom tail
+			elephant.append("rect").
+			  attr("x", 325).
+			  attr("y", 100).
+			  attr("height", 55).
+			  attr("width", 10).
+              style("fill","gray");        
+              
+            //head
+            elephant.append("rect").
+			  attr("x", 50).
+			  attr("y", 50).
+			  attr("height", 80).
+			  attr("width", 60).
+              style("fill","gray");
+              
+            //trunk
+            elephant.append("rect").
+			  attr("x", 70).
+			  attr("y", 95).
+			  attr("height", set_trunk).
+			  attr("width", 15).
+              style("fill","gray");
+              
+            //right ear
+            elephant.append("rect").
+			  attr("x", 100).
+			  attr("y", 30).
+			  attr("height", 60).
+			  attr("width", 40).
+              style("fill","gray");              
+
+            //left ear
+            elephant.append("rect").
+			  attr("x", 20).
+			  attr("y", 30).
+			  attr("height", 60).
+			  attr("width", 40).
+              style("fill","gray");              
+            
+            //back leg
+            elephant.append("rect").
+			  attr("x", 270).
+			  attr("y", 180).
+			  attr("height", 60).
+			  attr("width", 30).
+              style("fill","gray");
+            
+            //front leg
+            elephant.append("rect").
+			  attr("x", 100).
+			  attr("y", 180).
+			  attr("height", 60).
+			  attr("width", 30).
+              style("fill","gray");
+              
+		</script>
+	</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>D3 Page Template</title>
+        <style type="text/css">
+        */ Put CSS Style in here
+        </style>
+		<script type="text/javascript" src="d3.v3.js">
+        function updateSlider(sliderAmount) {
+        //Fill in function here
+        }
+        </script>
+        
+        <button>Trunkify</button>
+        
+        <div id="slider">
+            <input type="range"  min="0" max="100" step="5" 
+            value="100" onchange="updateSlider(this.value)"/>
+        </div>
+	</head>
+    
+	<body>
+	<div id="elephant"></div>
+    <div id="trunkslider"></div>
+    This is an elephant.
+		<script type="text/javascript">
+            // https://www.dashingd3js.com/svg-group-element-and-d3js
+            
+            //var set_trunk = d3.random.normal(100,20)  WON'T WORK SINCE JSON FORMAT I THINK
+            var elerectData = [
+               { "x": 270, "y": 180, "h": 60, "w": 30, "color": "gray"}, //back leg
+               { "x": 100, "y": 180, "h": 60, "w": 30, "color": "gray"}, //front leg
+               { "x": 100, "y": 100, "h": 100, "w": 200, "color": "gray"}, //body
+               { "x": 300, "y": 100, "h": 10, "w": 25, "color": "gray"}, //top tail
+               { "x": 325, "y": 100, "h": 55, "w": 10, "color": "gray"}, //bottom tail
+               { "x": 50, "y": 50, "h": 80, "w": 60, "color": "gray"}, //head
+               { "x": 70, "y": 95, "h": 100, "w": 15, "color": "gray"}, //trunk
+               { "x": 100, "y": 30, "h": 60, "w": 40, "color": "gray"}, //right ear
+               { "x": 20, "y": 30, "h": 60, "w": 40, "color": "gray"}]; //left ear
+               
+            var svgContainer = d3.select("#elephant"). //could also do the html body instead...jumps to left when I do elephant
+              append("svg").
+              attr("width",400).
+              attr("height",300);
+              
+            var eleGroup = svgContainer.append("g");
+            var eleRects = eleGroup.selectAll("rect")
+                                  .data(elerectData)
+                                  .enter()
+                                  .append("rect");
+
+            var rectAttributes = eleRects
+                                .attr("x", function (d) { return d.x; })
+                                .attr("y", function (d) { return d.y; })
+                                .attr("height", function (d) { return d.h; })                                
+                                .attr("width", function (d) { return d.w; })
+                                .attr("fill", function (d) { return d.color; })
+                                
+            //var trunkslider = d3.select("#trunkslider")
+                       
+            d3.select('button').on('click', function() {
+                return set_trunk()
+            });
+              
+		</script>
+	</body>
+</html>
