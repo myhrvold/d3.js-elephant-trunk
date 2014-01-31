@@ -1,4 +1,4 @@
-d3.js-toy-examples
+d3.js-elephant-trunk
 ==================
 
-Playing with d3.js.
+Grow an elephant trunk. Then shrink it. Or refresh a page to see its length become a random number variable!
